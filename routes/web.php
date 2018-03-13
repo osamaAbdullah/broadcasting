@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::GET('/alertBox',function (){return view('eventListener');});
+Route::GET('/fireEvent',function (){
+    event(new \App\Events\eventTrigger());
+});
